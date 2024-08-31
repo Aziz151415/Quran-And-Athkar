@@ -7,46 +7,58 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
+    background-attachment: fixed;
+    /* Keeps the background fixed */
+    position: relative;
+    /* Ensure the overlay is correctly positioned */
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5em;
-    /* Adjust size as needed */
-    margin: 20px 0;
-    /* Adjust margin to control spacing */
-    color: #fff;
-    /* Ensure the color contrasts well with the background */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /* Add shadow for better readability */
+/* Adding an overlay to improve text readability */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity as needed */
+    z-index: -1;
+    /* Place behind content */
 }
 
-
-/* Site Header Styling */
+/* Header and Title */
 .site-header {
     text-align: center;
-    padding: 50px 0;
-    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+    /* Reduced padding for smaller screens */
+    background: rgba(0, 0, 0, 0.6);
+    /* Slightly lighter overlay */
+    position: relative;
+    z-index: 1;
+    /* Ensure it's above the overlay */
 }
 
 .site-title {
-    font-size: 3em;
+    font-size: 2em;
+    /* Adjusted size for mobile */
     margin: 0;
 }
 
 .site-subtitle {
-    font-size: 1.5em;
-    margin: 0;
+    font-size: 1.2em;
+    /* Adjusted size for mobile */
     color: #ddd;
 }
 
-
-
 /* Main Navigation */
-.main-nav {
-    margin: 20px 0;
+nav a {
+    text-decoration: none;
 }
 
+.main-nav {
+    margin: 10px 0;
+}
 
 .buttons {
     display: flex;
@@ -55,6 +67,11 @@ h1 {
     gap: 15px;
     padding: 0;
     list-style: none;
+    flex-direction: column;
+    /* Stacked buttons on smaller screens */
+    position: relative;
+    z-index: 1;
+    /* Ensure it's above the overlay */
 }
 
 .buttons li {
@@ -64,14 +81,21 @@ h1 {
 .buttons button {
     background-color: rgba(39, 37, 37, 0.7);
     color: #f6f2f2;
-    padding: 15px 30px;
+    padding: 12px 24px;
+    /* Adjusted for better touch targets */
     border: none;
-    font-size: 16px;
-    border-radius: 10px;
+    font-size: 14px;
+    /* Adjusted font size */
+    border-radius: 8px;
+    /* Slightly rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 200px;
+    width: 100%;
+    /* Ensure buttons take full width on mobile */
+    text-align: center;
+    /* Center text inside buttons */
 }
 
 .buttons button:hover {
@@ -84,8 +108,9 @@ h1 {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
-    max-width: 500px;
-    margin: 40px auto;
+    max-width: 95%;
+    /* Ensures it fits within the viewport */
+    margin: 20px auto;
     text-align: left;
     line-height: 1.8;
     /* Increased line-height for better readability */
@@ -93,28 +118,15 @@ h1 {
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    /* Ensure it's above the overlay */
 }
 
 .prayer-times h3 {
     text-align: center;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    /* Added text shadow for better visibility */
-}
-
-.prayer-time-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.prayer-time-item span {
-    padding: 5px;
-}
-
-#current-date {
-    text-align: center;
-    margin-top: 20px;
 }
 
 /* Supplication Box Styling */
@@ -122,18 +134,22 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
     color: #000;
     margin: 20px auto;
-    padding: 20px;
+    padding: 15px;
+    /* Adjusted padding for mobile */
     border-radius: 15px;
-    width: 80%;
+    width: 95%;
+    /* Adjust width for mobile */
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    /* Ensure it's above the overlay */
 }
 
 .supplication-box h2 {
     margin-bottom: 15px;
     color: #333;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    /* Added text shadow for better visibility */
 }
 
 .supplication-box p {
@@ -141,9 +157,7 @@ h1 {
     line-height: 1.8em;
     /* Increased line-height for better readability */
     text-align: justify;
-    /* Justified text alignment for a clean look */
     margin-bottom: 15px;
-    /* Added space below paragraphs */
 }
 
 .supplication-box button {
@@ -160,21 +174,28 @@ h1 {
 .supplication-box button:hover {
     background-color: #333;
     transform: scale(1.05);
-    /* Slightly increases size on hover for a visual effect */
 }
 
 /* Footer Styling */
 .site-footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0;
+    /* Reduced padding for mobile */
     background: rgba(0, 0, 0, 0.7);
     color: #ccc;
     margin-top: 50px;
+    font-size: 14px;
+    /* Smaller font size for mobile */
+    position: relative;
+    z-index: 1;
+    /* Ensure it's above the overlay */
 }
 
 /* Centering the Footer Buttons */
 footer {
     display: flex;
+    flex-direction: column;
+    /* Stack footer elements on mobile */
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -197,58 +218,37 @@ footer button {
 footer button:hover {
     background-color: #161718;
     transform: translateY(-3px);
-    /* Button raises slightly on hover */
-}
-
-
-
-
-.site-footer p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.site-footer button {
-    background-color: #1a1e20;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.site-footer button:hover {
-    background-color: #191a1b;
-    transform: translateY(-3px);
-    /* Button raises slightly on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .site-header {
-        padding: 30px 0;
+        padding: 15px 0;
+        /* Reduced padding */
     }
 
     .site-title {
-        font-size: 2.5em;
+        font-size: 1.8em;
+        /* Further reduced size */
     }
 
     .site-subtitle {
-        font-size: 1.2em;
+        font-size: 1em;
+        /* Further reduced size */
     }
 
-    .buttons {
-        flex-direction: column;
-        gap: 10px;
+    .buttons button {
+        padding: 8px 16px;
+        /* Further reduced padding */
+        font-size: 14px;
+        /* Consistent font size */
     }
 
-    .prayer-times {
-        margin: 20px auto;
-        width: 90%;
-    }
-
+    .prayer-times,
     .supplication-box {
-        width: 90%;
+        width: 95%;
+        /* Ensure boxes fit well */
+        margin: 10px auto;
+        /* Reduced margins */
     }
 }
